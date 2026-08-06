@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoVendas - Acesso ao Sistema</title>
+    <link rel="stylesheet" href="./adms.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>AutoVendas</h2>
+            <p>Painel de Controle de Veículos</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">E-mail corporativo</label>
+                <input type="email" id="email" required placeholder="Digite seu e-mail">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required placeholder="Digite sua senha">
+            </div>
+
+            <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+
+        <div class="login-footer">
+            <a href="#">Esqueceu a senha?</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/administradores/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Login realizado com sucesso!');
+                } else {
+                    alert(data.mensagem || 'Falha ao autenticar.');
+                }
+            } catch (error) {
+                alert('Erro de conexão com o servidor. Verifique se o back-end está rodando.');
+            }
+        });
+    </script>
+</body>
+</html>
