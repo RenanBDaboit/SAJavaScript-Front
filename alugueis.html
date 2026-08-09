@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Aluguéis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gerenciamento de Aluguéis</h1>
+  </header>
+
+  <main class="container">
+    
+    <section class="card">
+      <h2>Novo / Editar Aluguel</h2>
+      <form id="form-aluguel">
+        <input type="hidden" id="aluguel-id">
+
+        <div class="form-group">
+          <label for="cliente-id">ID do Cliente</label>
+          <input type="number" id="cliente-id" placeholder="Ex: 10" required>
+        </div>
+
+        <div class="form-group">
+          <label for="item-id">ID do Item / Veículo</label>
+          <input type="number" id="item-id" placeholder="Ex: 4" required>
+        </div>
+
+        <div class="form-group">
+          <label for="data-inicio">Data de Início</label>
+          <input type="date" id="data-inicio" required>
+        </div>
+
+        <div class="form-group">
+          <label for="data-fim">Data de Devolução Prevista</label>
+          <input type="date" id="data-fim" required>
+        </div>
+
+        <div class="form-group">
+          <label for="valor-total">Valor Total (R$)</label>
+          <input type="number" step="0.01" id="valor-total" placeholder="0.00" required>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Operações Rápidas</h2>
+      
+      <div class="action-box">
+        <label for="busca-id">Buscar por ID</label>
+        <div class="input-inline">
+          <input type="number" id="busca-id" placeholder="ID do Aluguel">
+          <button type="button" class="btn btn-info">Buscar</button>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="action-box">
+        <label for="finalizar-id">Finalizar Aluguel por ID</label>
+        <div class="input-inline">
+          <input type="number" id="finalizar-id" placeholder="ID do Aluguel">
+          <button type="button" class="btn btn-warning">Finalizar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card full-width">
+      <div class="card-header">
+        <h2>Lista de Aluguéis</h2>
+        <button class="btn btn-primary" id="btn-atualizar-lista">Atualizar Lista</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente ID</th>
+            <th>Item ID</th>
+            <th>Início</th>
+            <th>Devolução</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>102</td>
+            <td>15</td>
+            <td>10/08/2026</td>
+            <td>15/08/2026</td>
+            <td>R$ 250,00</td>
+            <td><span class="badge badge-active">Em Andamento</span></td>
+            <td>
+              <button class="btn btn-warning btn-sm">Editar</button>
+              <button class="btn btn-success btn-sm">Finalizar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+</body>
+</html>
