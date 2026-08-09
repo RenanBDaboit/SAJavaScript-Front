@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gerenciamento de Clientes</h1>
+  </header>
+
+  <main class="container">
+    
+    <section class="card">
+      <h2>Login do Cliente</h2>
+      <form id="form-login">
+        <div class="form-group">
+          <label for="login-email">Login / E-mail</label>
+          <input type="text" id="login-email" placeholder="Digite seu e-mail ou login" required>
+        </div>
+        <div class="form-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Cadastrar / Editar Cliente</h2>
+      <form id="form-cliente">
+        <input type="hidden" id="cliente-id">
+
+        <div class="form-group">
+          <label for="cliente-nome">Nome Completo</label>
+          <input type="text" id="cliente-nome" placeholder="Ex: Ana Maria" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cliente-documento">CPF / CNPJ</label>
+          <input type="text" id="cliente-documento" placeholder="000.000.000-00" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cliente-telefone">Telefone</label>
+          <input type="tel" id="cliente-telefone" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cliente-email">E-mail</label>
+          <input type="email" id="cliente-email" placeholder="cliente@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cliente-senha">Senha</label>
+          <input type="password" id="cliente-senha" placeholder="Digite a senha">
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card full-width">
+      <div class="card-header">
+        <h2>Lista de Clientes</h2>
+        <div class="search-box">
+          <input type="number" id="busca-id" placeholder="Buscar por ID">
+          <button type="button" class="btn btn-info">Buscar</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF/CNPJ</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Maria Oliveira</td>
+            <td>123.456.789-00</td>
+            <td>(11) 98765-4321</td>
+            <td>maria@email.com</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Editar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+</body>
+</html>
