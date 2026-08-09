@@ -1,63 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoVendas - Acesso ao Sistema</title>
-    <link rel="stylesheet" href="./adms.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Administradores</title>
+  <link rel="stylesheet" href="adms.css">
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="login-header">
-            <h2>AutoVendas</h2>
-            <p>Painel de Controle de Veículos</p>
+  <header>
+    <h1>Painel do Administrador</h1>
+  </header>
+
+  <main class="container">
+    
+    <section class="card">
+      <h2>Login</h2>
+      <form id="form-login">
+        <div class="form-group">
+          <label for="login-email">Login / E-mail</label>
+          <input type="text" id="login-email" placeholder="Digite seu login" required>
+        </div>
+        <div class="form-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Cadastrar / Editar Administrador</h2>
+      <form id="form-administrador">
+        <input type="hidden" id="admin-id">
+
+        <div class="form-group">
+          <label for="admin-nome">Nome</label>
+          <input type="text" id="admin-nome" placeholder="Nome completo" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-email">Login / E-mail</label>
+          <input type="text" id="admin-email" placeholder="E-mail de acesso" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-senha">Senha</label>
+          <input type="password" id="admin-senha" placeholder="Senha de acesso">
         </div>
 
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="email">E-mail corporativo</label>
-                <input type="email" id="email" required placeholder="Digite seu e-mail">
-            </div>
-
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" required placeholder="Digite sua senha">
-            </div>
-
-            <button type="submit" class="btn-submit">Entrar</button>
-        </form>
-
-        <div class="login-footer">
-            <a href="#">Esqueceu a senha?</a>
+        <div class="button-group">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
         </div>
-    </div>
+      </form>
+    </section>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
+    <section class="card full-width">
+      <div class="card-header">
+        <h2>Administradores Cadastrados</h2>
+        <div class="search-box">
+          <input type="number" id="busca-id" placeholder="Buscar por ID">
+          <button class="btn btn-info">Buscar</button>
+        </div>
+      </div>
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Login / E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Carlos Silva</td>
+            <td>carlos@email.com</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Editar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-            try {
-                const response = await fetch('http://localhost:3000/administradores/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
+  </main>
 
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert('Login realizado com sucesso!');
-                } else {
-                    alert(data.mensagem || 'Falha ao autenticar.');
-                }
-            } catch (error) {
-                alert('Erro de conexão com o servidor. Verifique se o back-end está rodando.');
-            }
-        });
-    </script>
 </body>
 </html>
