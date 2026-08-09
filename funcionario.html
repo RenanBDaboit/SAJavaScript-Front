@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Funcionários</title>
+  <link rel="stylesheet" href="funcionario.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gerenciamento de Funcionários</h1>
+  </header>
+
+  <main class="container">
+    
+    <section class="card">
+      <h2>Login do Funcionário</h2>
+      <form id="form-login">
+        <div class="form-group">
+          <label for="login-email">Login / E-mail</label>
+          <input type="text" id="login-email" placeholder="Digite seu e-mail ou login" required>
+        </div>
+        <div class="form-group">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Cadastrar / Editar Funcionário</h2>
+      <form id="form-funcionario">
+        <input type="hidden" id="funcionario-id">
+
+        <div class="form-group">
+          <label for="func-nome">Nome Completo</label>
+          <input type="text" id="func-nome" placeholder="Ex: João Souza" required>
+        </div>
+
+        <div class="form-group">
+          <label for="func-cargo">Cargo</label>
+          <input type="text" id="func-cargo" placeholder="Ex: Atendente, Gerente" required>
+        </div>
+
+        <div class="form-group">
+          <label for="func-cpf">CPF</label>
+          <input type="text" id="func-cpf" placeholder="000.000.000-00" required>
+        </div>
+
+        <div class="form-group">
+          <label for="func-email">E-mail</label>
+          <input type="email" id="func-email" placeholder="funcionario@empresa.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="func-senha">Senha</label>
+          <input type="password" id="func-senha" placeholder="Digite a senha de acesso">
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card full-width">
+      <div class="card-header">
+        <h2>Lista de Funcionários</h2>
+        <div class="search-box">
+          <input type="number" id="busca-id" placeholder="Buscar por ID">
+          <button type="button" class="btn btn-info">Buscar</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lucas Mendes</td>
+            <td>Atendente</td>
+            <td>111.222.333-44</td>
+            <td>lucas@empresa.com</td>
+            <td>
+              <button class="btn btn-warning btn-sm">Editar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+</body>
+</html>
