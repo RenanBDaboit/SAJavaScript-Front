@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Carros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Gerenciamento de Frota de Carros</h1>
+  </header>
+
+  <main class="container">
+    
+    <section class="card">
+      <h2>Cadastrar / Editar Carro</h2>
+      <form id="form-carro">
+        <input type="hidden" id="carro-id">
+
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <input type="text" id="marca" placeholder="Ex: Toyota" required>
+        </div>
+
+        <div class="form-group">
+          <label for="modelo">Modelo</label>
+          <input type="text" id="modelo" placeholder="Ex: Corolla" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ano">Ano</label>
+          <input type="number" id="ano" placeholder="Ex: 2024" required>
+        </div>
+
+        <div class="form-group">
+          <label for="placa">Placa</label>
+          <input type="text" id="placa" placeholder="Ex: ABC-1234" required>
+        </div>
+
+        <div class="form-group">
+          <label for="valor-diaria">Valor Diária (R$)</label>
+          <input type="number" step="0.01" id="valor-diaria" placeholder="0.00" required>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="reset" class="btn btn-secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Ações e Consultas</h2>
+      
+      <div class="action-box">
+        <label for="busca-id">Buscar por ID</label>
+        <div class="input-inline">
+          <input type="number" id="busca-id" placeholder="ID do Carro">
+          <button type="button" class="btn btn-info">Buscar</button>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="action-box">
+        <label for="status-id">Alterar Status por ID</label>
+        <div class="input-inline mb-2">
+          <input type="number" id="status-id" placeholder="ID do Carro">
+        </div>
+        <div class="input-inline">
+          <select id="status-carro">
+            <option value="disponivel">Disponível</option>
+            <option value="alugado">Alugado</option>
+            <option value="manutencao">Em Manutenção</option>
+          </select>
+          <button type="button" class="btn btn-warning">Atualizar Status</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card full-width">
+      <div class="card-header">
+        <h2>Frota de Carros</h2>
+        <div class="button-group">
+          <button class="btn btn-primary" id="btn-listar-todos">Listar Todos</button>
+          <button class="btn btn-info" id="btn-listar-disponiveis">Apenas Disponíveis</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Marca / Modelo</th>
+            <th>Ano</th>
+            <th>Placa</th>
+            <th>Diária</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Toyota Corolla</td>
+            <td>2024</td>
+            <td>ABC-1D23</td>
+            <td>R$ 180,00</td>
+            <td><span class="badge badge-success">Disponível</span></td>
+            <td>
+              <button class="btn btn-warning btn-sm">Editar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+</body>
+</html>
